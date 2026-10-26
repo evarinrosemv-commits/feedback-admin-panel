@@ -97,9 +97,9 @@ async function startServer() {
     await mongoose.connect(process.env.MONGO_URL);
     console.log("MongoDB Connected Successfully!");
 
-    app.listen(5000, () => {
-      console.log("Backend running on port 5000");
-    });
+    app.listen(process.env.PORT || 5000, "0.0.0.0", () => {
+  console.log("Backend is running");
+});
   } catch (error) {
     console.error("STARTUP ERROR:", error.message);
   }
